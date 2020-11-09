@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang=ja>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="charChamge.css">
+    <title>文字列の切り替え コレクション</title>
+</head>
+<body>
+
+    <!--使い方の説明-->
+    <h3>
+        <p>このアプリケーションの使い方</p>
+    </h3>
+    <h4>
+        1 : 文字列(1),(2),(3)に好きな文字を入力する<br>
+        2 : 文字列切り替える をクリックする
+    </h4>
+
+    <!--文字列の入力欄-->
+    <p>
+        <h3>文字列(1)</h3>
+    </p>
+    <input type="text" id=string-1>
+
+    <h3>文字列(2)</h3>
+    <input type="text" id=string-2>
+
+    <h3>文字列(3)</h3>
+    <input type="text" id=string-3><br>
+
+    <!--切り替え用ボタン-->
+    <p>
+        <button id=button-area>文字列を切り替える</button>
+    </p>
+
+    <!--結果を表示する場所-->
+    <h3 id=result-area>result-area</h3>
+
+    <!--JavaScript の処理-->
+    <script>
+        //id を取得する処理
+        const chamgeButton = document.getElementById('button-area');
+        const result = document.getElementById('result-area');
+
+        //変数の定義
+        var i = 0;
+
+        //ボタンを押した時に処理を実行する
+        chamgeButton.onclick = function(){
+
+            //ボタンを押した時に実行する処理
+
+            //テキストボックスの id を取得する処理
+            const string_1 = document.getElementById('string-1');
+            const string_2 = document.getElementById('string-2');
+            const string_3 = document.getElementById('string-3');
+
+            //テキストボックスに入力された値を取得する処理
+            const char = [
+                string_1.value,
+                string_2.value,
+                string_3.value
+            ]
+
+            //引数が増えすぎないように、引数が文字列の数を越えたら、引数を0にする処理
+            if(i>=char.length){
+                i = 0;
+            }
+
+            //result-area に文字列を表示する
+            result.innerText = char[i];
+
+            //次の文字列を表示するために引数を変更する処理
+            i++;
+        }
+    </script>
+</body>
+</html>
